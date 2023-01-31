@@ -1,0 +1,15 @@
+@import 'bootstrap/scss/bootstrap.scss';
+
+$deep-taupe: #815e5bff;
+$purple-mountain-majesty: #8b85c1ff;
+$russian-violet: #2f195fff;
+$lavender-blue: #d4cdf4ff;
+$black-chocolate: #141301ff;
+
+.App {
+    // background-image: linear-gradient(to right top, #4211a1, #6b21a5, #8a33a9, #a547ae, #bc5db4);
+    background: -webkit-linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #252580a5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background-color: #1b0545;
+}
+
