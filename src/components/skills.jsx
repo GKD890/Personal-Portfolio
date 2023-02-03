@@ -1,10 +1,20 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 
-export function Skill() {
+export function Skill({skillName, proficiency}) {
 
     return(
-        <Container>
+        <Card>
+            <Card.Header>{skillName}</Card.Header>
+        </Card>
+    )
+    
+}
+
+export function SkillDeck() {
+
+    return(
+        <Container className="skill-deck center-container">
             
         </Container>
     )
