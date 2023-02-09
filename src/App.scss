@@ -4,18 +4,46 @@
 /*                               Global Default                               */
 /* -------------------------------------------------------------------------- */
 
-$deep-taupe: #815e5bff;
-$purple-mountain-majesty: #8b85c1ff;
-$russian-violet: #2f195fff;
-$lavender-blue: #d4cdf4ff;
-$black-chocolate: #141301ff;
-
 .App {
-    // background-image: linear-gradient(to right top, #4211a1, #6b21a5, #8a33a9, #a547ae, #bc5db4);
-    background: -webkit-linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #252580a5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  // background-color: #1b0545;
+
+  font-family: 'Roboto', sans-serif;
+  background-color: #111827;
+  color:#FFFFFF;
+
+  h1 {
+    padding-bottom: 5rem;
+    letter-spacing: 0.1rem;
+  }
+
+  /* TODO: header hover animation */
+    
+  // .section-header {
+  //   padding-bottom: 5rem;
+  //   position: relative;
+  //   transition: all 1s;
+
+  // }
+  // .section-header:after {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   margin: auto;
+  //   width: 0%;
+  //   content: '.';
+  //   color: transparent;
+  //   background: #aaa;
+  //   height: 1px;
+  // }
+
+  // .section-header:hover:after {
+  //   width: 100%;
+  //   height: 1px;
+  //   background-color: #2C66C3;
+  // }
+  
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Home Page                                 */
@@ -23,25 +51,198 @@ $black-chocolate: #141301ff;
 
 
 /* --------------------------------- Navbar --------------------------------- */
+.i-container {
+  font-weight: 400;
+
+  .i-navBrand {
+    font-size: xx-large;
+  }
+  .i-navBrand strong {
+    color: #f9f9f9;
+    padding-left: 3px;
+  }
+
+  .nav-link {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .social-icon{
+    height: 24px;
+    width: 24px;
+  }
+  
+.btn {
+    border: 0;
+    color: #BBBBBB;
+  }
+.btn:hover {
+    border: 0;
+    color: #FFFFFF;
+  }
+  .btn.active {
+    // border: 0;
+    color: #FFFFFF;
+    // background-color: transparent;
+  }
+
+}
 
 
 
  /* -------------------------------------------------------------------------- */
  /*                                     Bio                                    */
  /* -------------------------------------------------------------------------- */
+.bio {
+  padding-top: 10%;
+  padding-bottom: 5%;
 
+  h2 {
+    font-size: 65px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 1;
+    display: block;
+  }
+
+  p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    width: 96%;
+  }
+
+  .bio-image {
+    // background-size:10% 10%;
+    width: 100%;
+    height: 100%;
+    border-radius: 4%;
+    opacity: 0.9;
+    // background-image:url('./assets/971.jpg');
+    
+  }
+}
 
 
 
 /* -------------------------------------------------------------------------- */
 /*                                   Skills                                   */
 /* -------------------------------------------------------------------------- */
+.skill {
 
-.skill-deck {
+  background-color: #111827;
+  padding: 5% 0%;
+
+  .skill-deck {
+    text-align: center;
+    padding: 5% 3%;
+    
+
+    .skill-card{
+      margin: 1rem;
+      border:solid #293548;
+      padding: 2% ;
+    }
+
+    .skill-card:hover{
+      opacity: 0.8;
+    }
+  }
+
+  .skill-icon {
+    height: 70px;
+    width: 70px;
+  }
+}
+/* -------------------------------------------------------------------------- */
+/*                                  Projects                                  */
+/* -------------------------------------------------------------------------- */
+.project {
+  background-color: #111827;
+  text-align: center;
+  padding: 5% 0%;
+
+  .project-tab {
+    padding: 5% 0%;
+  }
+
+  .card {
+    // background-color: #444444;
+    background-color: #111827;
+    padding: 0%;
+
+    .card-header {
+      visibility: hidden;
+    }
+    .card-body {
+      padding-left: 0%;
+      padding-right: 0%;
+      padding-bottom: 0%;
+    }
+    .card-footer {
+      display: none;
+      background-color:#293548 ;
+    }
+    
+  }
+
+  .card:hover {
+    transform: scale(1.1);
+    background-color: #444444;
+    padding: 0%;
+
+    .screenshot {
+      zoom:1.1;
+    }
+    .card-footer{
+      display:inline;
+    }
+
+    .card-header {
+      visibility: visible;
+    }
+  }
   
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                   Footer                                   */
 /* -------------------------------------------------------------------------- */
+.footer {
+  background-color: #1E293B;
+  padding: 3% 0%;
+  margin-bottom:0;
+  align-items: center;
+
+  .container {
+    padding-bottom: 0%;
+  }
+  p{
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+  }
+
+  .social-link-bar{
+     padding-bottom: 5%;
+     padding-right: 0%;
+     
+
+    .social-icon{
+      color:#BFBFBF ;
+      margin: 0px 5px;
+      height: 24px;
+      width: 24px;
+    }
+  }
+  
+
+  .up-arrow {
+    height: 24px;
+    width: 24px;
+    position: absolute ;
+    margin-top: -124px;
+    font-weight: 900;
+  }
+
+}
+
