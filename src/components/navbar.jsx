@@ -33,9 +33,6 @@ export function INav ({refs}) {
           for (let i = 0; i < sectionOffsets.length; i++) {
             const lowerBound = sectionOffsets[i] - offset ;
             const upperBound = sectionOffsets[i+1]- offset ;
-
-            console.log(`current:  ${scrollPosition}, lower:${i} ${lowerBound} , upper: ${upperBound}`)
-            console.log(`               offset:${i} ${sectionOffsets[i]-offset} , next: ${sectionOffsets[i + 1]-offset}`)
             
             if (scrollPosition >= lowerBound && scrollPosition < upperBound) {
               // console.info(`set ${sections[i]}`)
