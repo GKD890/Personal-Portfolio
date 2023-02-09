@@ -1,3 +1,6 @@
+# Link
+[portfolio website](https://gkd890.github.io/Personal-Portfolio/)
+
 # Preview
 
 ![homepage](src/assets/portfolio_screenshot.jpg)
