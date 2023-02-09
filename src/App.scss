@@ -51,6 +51,18 @@
 
 
 /* --------------------------------- Navbar --------------------------------- */
+nav {
+  .up-arrow-box {
+    position: relative;
+    transform: translateY(55vh);
+   
+    .up-arrow {
+      // color: #2C66C3;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
 .i-container {
   font-weight: 400;
 
@@ -89,6 +101,7 @@
 
 
 
+
  /* -------------------------------------------------------------------------- */
  /*                                     Bio                                    */
  /* -------------------------------------------------------------------------- */
@@ -97,29 +110,66 @@
   padding-bottom: 5%;
 
   h2 {
-    font-size: 65px;
+    font-size: 70px;
     font-weight: 700;
     letter-spacing: 0.8px;
     line-height: 1;
     display: block;
+    padding: 4% 0% 1% 0%;
+  }
+  span {
+    font-size: 32px;
+    font-weight: 100;
   }
 
   p {
     color: #B8B8B8;
     font-size: 18px;
     letter-spacing: 0.8px;
-    line-height: 1.5em;
-    width: 96%;
+    padding: 3% 0% 3% 0%;
+  }
+
+  .web-role {
+    color: #2CB67D;
+    font-size: 55px;
+    letter-spacing: 0.8px;
+    margin-bottom: 3%;
+  }
+  .self-intro {
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-icon {
+    height: 24px;
+    width: 24px;
+    padding-bottom: 1px;
+  }
+
+  .wave {
+    animation-name: wave-animation;  
+    animation-duration: 2s;        
+    animation-iteration-count: infinite;  
+    transform-origin: 70% 70%;      
+    display: inline-block;
+  }
+  
+  @keyframes wave-animation {
+      0% { transform: rotate( 0.0deg) }
+     15% { transform: rotate(14.0deg) }  
+     25% { transform: rotate(-8.0deg) }
+     35% { transform: rotate(14.0deg) }
+     45% { transform: rotate(-4.0deg) }
+     55% { transform: rotate(10.0deg) }
+     75% { transform: rotate(-4.0deg) } 
+    100% { transform: rotate( 0.0deg) }
   }
 
   .bio-image {
-    // background-size:10% 10%;
     width: 100%;
     height: 100%;
     border-radius: 4%;
     opacity: 0.9;
-    // background-image:url('./assets/971.jpg');
-    
   }
 }
 
@@ -234,15 +284,22 @@
       width: 24px;
     }
   }
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Blog                                    */
+/* -------------------------------------------------------------------------- */
+.blog {
   
+  .toast-container {
+    
+    color: #000;
+    transform: translateY(10vh);
 
-  .up-arrow {
-    height: 24px;
-    width: 24px;
-    position: absolute ;
-    margin-top: -124px;
-    font-weight: 900;
+    .toast-body {
+      font-size: 22px;
+    }
   }
-
 }
 

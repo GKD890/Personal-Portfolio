@@ -16,7 +16,7 @@ import bioImage from "./assets/971.jpg"
 
 //   return (
 //     <div className="App vh-100">
-//       <INav  />
+//       <INav ref={skill}  />
 //       <Bio avatar={bioImage} ref={home} />
 //       <SkillDeck ref={skill} />
 //       <ProjectDeck ref={project} />
@@ -24,10 +24,8 @@ import bioImage from "./assets/971.jpg"
 //     </div>
 //   )
 // }
+
 function App() {
-  // const home = useRef(null);
-  // const skill = useRef(null);
-  // const project = useRef(null);
 
   return (
     <div className="App vh-100">

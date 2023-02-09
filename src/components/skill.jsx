@@ -18,7 +18,7 @@ function Skill({skillName, proficiency,icon}) {
 export function SkillDeck({ref}) {
 
     return(
-        <section className="skill flex-md-row aligh-item-center" ref={ref}>
+        <section className="skill flex-md-row aligh-item-center" ref={ref} id="skill">
         <Container className="skill-deck " id="skill">
                 <h1>Skill</h1>
 

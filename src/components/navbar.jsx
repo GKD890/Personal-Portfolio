@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button, Container, Nav, Navbar} from "react-bootstrap";
-import { Github, Linkedin } from "react-bootstrap-icons";
+import { ArrowUp, Github, Linkedin } from "react-bootstrap-icons";
+import { Blog } from "./blog";
 
 const style = {
     Navbar:` scrolled bg-dark text-light`,
@@ -12,64 +13,99 @@ const style = {
 }
 
 const gitHubLink = "https://github.com/GKD890";
+const linkedinLink = "https://www.linkedin.com/in/yubo-sun-822117214/";
 
-export function INav({refs}) {
-    const [activeLink, setActiveLink] = useState('');
+export function INav ({refs}) {
+    const [activeLink, setActiveLink] = useState('home');
+    const [goTopVisible, setGoTopVisible] = useState(false);
+    const [blogToast, setBlogToast] =useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const sections = ['bio', 'skill', 'project'];
+          let sectionOffsets = sections.map(section => {
+            return document.querySelector(`#${section}`).offsetTop;
+          });
+          sectionOffsets = [...sectionOffsets,1900,2400]; // next array element will be NaN when final element
+          const offset = 200;
+          const scrollPosition = window.pageYOffset;  
+          
+          for (let i = 0; i < sectionOffsets.length; i++) {
+            const lowerBound = sectionOffsets[i] - offset ;
+            const upperBound = sectionOffsets[i+1]- offset ;
+
+            console.log(`current:  ${scrollPosition}, lower:${i} ${lowerBound} , upper: ${upperBound}`)
+            console.log(`               offset:${i} ${sectionOffsets[i]-offset} , next: ${sectionOffsets[i + 1]-offset}`)
+            
+            if (scrollPosition >= lowerBound && scrollPosition < upperBound) {
+              // console.info(`set ${sections[i]}`)
+              setActiveLink(sections[i]);
+              if(i !== 0){setGoTopVisible(true);}
+              else {setGoTopVisible(false);}
+              break;
+            } 
+            
+          }
+        };
     
-    const swtichActive =(link)=>{
-        setActiveLink("blog");
-    }
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
 
-    const scrollToSec = (elementRef) => {
+      const goTop = () => {
         window.scrollTo({
-            top:elementRef.current.offsetTop,
-            behavior:"smooth"
-        })
-    }
-    return(
-        <Navbar collapseOnSelect="false" expand="md" className={style.Navbar} variant="dark" sticky="top">
-                <Container className="i-container i-nav">
-                    <Navbar.Brand className="i-navBrand" href="bio">
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+
+      const constNav = (
+        <Container className="i-container i-nav">
+                    <Navbar.Brand className="i-navBrand" href="#bio">
                         {/* <img src={logo} alt="Logo" /> */}
-                        Lo  
-                        <strong className="str">go</strong>
+                        Yubo  
+                        <strong className="str">Sun</strong>
                     </Navbar.Brand>
                     <Nav >
                         <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
                         <Navbar.Collapse id="navbarScroll">
-                            <Nav.Link href="#skill"> <Button className={activeLink === "skill"? "active": ""} variant="outline-primary">Skills</Button></Nav.Link>
-                            <Nav.Link href="#project"> <Button className={activeLink === "projects"? "active": ""} variant="outline-primary">Projects</Button> </Nav.Link>
-                            <Nav.Link href="#"> <Button className={activeLink === "blog"? "active": ""} variant="outline-primary" onClick={swtichActive}>Blog</Button> </Nav.Link>
-                            <Nav.Link> 
+                            <Nav.Link href="#skill"> <Button className={activeLink === "skill"? "active": ""} variant="outline-primary" >Skills</Button></Nav.Link>
+                            <Nav.Link href="#project"> <Button className={activeLink === "project"? "active": ""} variant="outline-primary">Projects</Button> </Nav.Link>
+                            <Nav.Link href="#"> <Button className={activeLink === "blog"? "active": ""} variant="outline-primary" onClick={()=> setBlogToast(true)} >Blog</Button> </Nav.Link>
+                            <Blog closeFunction={()=>setBlogToast(false)} ifShow={blogToast}  />
+
+                            <Nav.Link href={gitHubLink}> 
                                 <Button  variant="outline-primary">
                                     <Github className="social-icon" />
                                 </Button> 
                             </Nav.Link>
-                            <Nav.Link> 
+                            <Nav.Link href={linkedinLink}> 
                                 <Button  variant="outline-primary">
                                     <Linkedin className="social-icon" />
                                 </Button> 
                             </Nav.Link>
                         </Navbar.Collapse>
                     </Nav>
-                
+                    
                 </Container>
-            </Navbar>
-    )
+      )
+    
+    if (goTopVisible){
+      return (
+        <Navbar collapseOnSelect="false" expand="md" className={style.Navbar} variant="dark" fixed="top">
+          {constNav}
+          <Button className="up-arrow-box p-2 me-4 rounded-4" variant="secondary" onClick={()=>goTop()}> <ArrowUp className="up-arrow" /> </Button>              
+        </Navbar>
+      )
+    } else{
+      return (
+        <Navbar collapseOnSelect="false" expand="md" className={style.Navbar} variant="dark" fixed="top">
+          {constNav}
+        </Navbar>
+      )
+    }
 
-    // return (
-    //     <Navbar bg="light" expand="lg">
-    //       <Container>
-    //         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-    //         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //         <Navbar.Collapse id="basic-navbar-nav">
-    //           <Nav className="me-auto">
-    //             <Nav.Link href="#home">Home</Nav.Link>
-    //             <Nav.Link href="#link">Link</Nav.Link>
-
-    //           </Nav>
-    //         </Navbar.Collapse>
-    //       </Container>
-    //     </Navbar>
-    //   );
 }
